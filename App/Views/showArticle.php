@@ -12,7 +12,7 @@
                 </h3>
             </header>
             <div>
-            <img src="//casino-blog/uploads/<?= $article['image'] ?>" alt="" width="600"  class="d-block float-md-left mb-4 mb-lg-3 mr-md-4 mw-100 mx-auto" style="border: 1px solid rgba(255,255,255,0.125);">
+            <img src="//28.easyweb-thailand.com/uploads/<?= $article['image'] ?>" alt="" width="600"  class="d-block float-md-left mb-4 mb-lg-3 mr-md-4 mw-100 mx-auto" style="border: 1px solid rgba(255,255,255,0.125);">
                 <?= $article['detail'] ?>
             </div>
         </article>

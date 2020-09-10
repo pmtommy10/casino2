@@ -19,7 +19,7 @@ use App\Core\Util; ?>
                         <div class="col">
                             <div class="card border-warning bg-gradient bg-transparent text-white">
                                 <div class="row g-0">
-                                    <div class="col-sm-4 rounded-left" style="background-image: url('//casino-blog/uploads/<?= $article['image'] ?>'); 
+                                    <div class="col-sm-4 rounded-left" style="background-image: url('//28.easyweb-thailand.com/uploads/<?= $article['image'] ?>'); 
                                                    background-position: center;
                                                    background-size: cover;"></div>
                                     <div class="col-sm">
