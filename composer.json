@@ -1,0 +1,14 @@
+{
+    "name": "casino/two",
+    "type": "project",
+    "require": {
+        "altorouter/altorouter": "1.1.0",
+        "clancats/hydrahon": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "MiLaptop",
+            "email": "pmtommy10@gmail.com"
+        }
+    ]
+}

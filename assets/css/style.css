@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap');
+
+html {
+    background-color: black;
+}
+
+body {
+    font-family: 'Prompt', var(--bs-font-sans-serif);
+    background-color: black;
+    background-image: url('/assets/img/bg.jpg');
+    background-position: top 53vw center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+@media screen and (max-width: 1400px) {
+    body {
+        background-position: top 65vw center;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        background-position: top 85vw center;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    body {
+        background-position: top 100vw center;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        background-position: top 150vw center;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    body {
+        background-position: top 200vw center;
+    }
+}
+
+#intro-section::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, white, transparent);
+}
+
+.header-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 60%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 5px;
+    background-color: rgb(255 196 19 / 0.25);
+}
+
+.header-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 5px;
+    background-color: rgb(255 196 19 / 0.25);
+}
+
+.header-line * {
+    z-index: 1;
+    margin-bottom: 0;
+}
+
+.bg-black {
+    background-color: black !important;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.hover-shadow {
+    transition: 0.35s;
+    box-shadow: none;
+}
+
+.hover-shadow:hover {
+    transition: 0.35s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.hover-popup {
+    transition: 0.35s;
+    transform: scale(1);
+}
+
+.hover-popup:hover {
+    transition: 0.35s;
+    transform: scale(1.25);
+    z-index: 2;
+}
