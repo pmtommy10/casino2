@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public static function index()
     {
-        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+        $articles = Article::select()->where('web_id', 2)->orderBy('id', 'desc')->limit(6)->get();
         
         self::createView('index', [
             'pageHeader' => [
@@ -35,7 +35,7 @@ class PageController extends Controller
 
     public static function casino()
     {
-        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+        $articles = Article::select()->where('web_id', 2)->orderBy('id', 'desc')->limit(6)->get();
 
         self::createView('casino', [
             'pageHeader' => [
@@ -50,7 +50,7 @@ class PageController extends Controller
 
     public static function bacara()
     {
-        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+        $articles = Article::select()->where('web_id', 2)->orderBy('id', 'desc')->limit(6)->get();
 
         self::createView('bacara', [
             'pageHeader' => [
@@ -65,7 +65,7 @@ class PageController extends Controller
 
     public static function slot()
     {
-        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+        $articles = Article::select()->where('web_id', 2)->orderBy('id', 'desc')->limit(6)->get();
 
         self::createView('slot', [
             'pageHeader' => [
@@ -80,7 +80,7 @@ class PageController extends Controller
 
     public static function football()
     {
-        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+        $articles = Article::select()->where('web_id', 2)->orderBy('id', 'desc')->limit(6)->get();
 
         self::createView('football', [
             'pageHeader' => [
@@ -93,9 +93,24 @@ class PageController extends Controller
         ]);
     }
 
+    public static function promotion()
+    {
+        $articles = Article::select()->where('web_id', 2)->orderBy('id', 'desc')->limit(6)->get();
+
+        self::createView('promotion', [
+            'pageHeader' => [
+                'pageTitle' => 'โปรโมชั่น',
+                'pageDesc' => '',
+                'url' => '/โปรโมชั่น'
+            ],
+            'partnerInContainer' => true,
+            'articles' => $articles,
+        ]);
+    }
+
     public static function contact()
     {
-        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+        $articles = Article::select()->where('web_id', 2)->orderBy('id', 'desc')->limit(6)->get();
 
         self::createView('contact', [
             'pageHeader' => [
@@ -110,7 +125,7 @@ class PageController extends Controller
 
     public static function entry()
     {
-        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+        $articles = Article::select()->where('web_id', 2)->orderBy('id', 'desc')->limit(6)->get();
 
         self::createView('entry', [
             'pageHeader' => [
@@ -130,8 +145,8 @@ class PageController extends Controller
 
         $itemsPerPage = 6;
 
-        $articles = Article::select()->page($pageNo-1, $itemsPerPage)->get();
-        $pagination = self::paginate(Article::select()->count(), $itemsPerPage);
+        $articles = Article::select()->where('web_id', 2)->page($pageNo-1, $itemsPerPage)->get();
+        $pagination = self::paginate(Article::select()->where('web_id', 2)->count(), $itemsPerPage);
 
         self::createView('articles', [
             'pageHeader' => [
@@ -149,7 +164,7 @@ class PageController extends Controller
     public static function showArticle(string $articleSlug)
     {
         $articleSlug = filter_var(urldecode($articleSlug), FILTER_SANITIZE_STRING);
-        $article = Article::select()->where('slug', $articleSlug)->one();
+        $article = Article::select()->where('web_id', 2)->where('slug', $articleSlug)->one();
 
         self::createView('showArticle', [
             'pageHeader' => [
