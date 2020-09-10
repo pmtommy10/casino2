@@ -166,6 +166,8 @@ class PageController extends Controller
         $articleSlug = filter_var(urldecode($articleSlug), FILTER_SANITIZE_STRING);
         $article = Article::select()->where('web_id', 2)->where('slug', $articleSlug)->one();
 
+        if (!$article) return self::notFound();
+
         self::createView('showArticle', [
             'pageHeader' => [
                 'pageTitle' => $article['title'],
@@ -174,6 +176,17 @@ class PageController extends Controller
             ],
             'partnerInContainer' => true,
             'article' => $article,
+        ]);
+    }
+
+    public static function notFound()
+    {        
+        self::createView('404', [
+            'pageHeader' => [
+                'pageTitle' => '404 ไม่พบหน้าที่ระบุ',
+                'pageDesc' => '',
+                'url' => ''
+            ],
         ]);
     }
 }
