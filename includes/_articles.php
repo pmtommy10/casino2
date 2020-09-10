@@ -27,7 +27,7 @@ use App\Core\Util; ?>
                                             <h6 class="card-title text-warning"><?= $article['title'] ?></h6>
                                             <p class="text-muted small mb-1">
                                                 <i class="far fa-clock mr-2"></i><?= Util::THdatetime($article['timestamp']) ?></p>
-                                            <p class="text-truncate"><?= Util::short($article['detail'], 150) ?></p>
+                                            <p class="text-truncate text-wrap"><?= Util::short(strip_tags($article['detail']), 150) ?></p>
                                             <div class="text-right">
                                                 <a href="/บทความ/<?= $article['slug'] ?>" class="btn stretched-link btn-outline-warning">อ่านต่อ</a>
                                             </div>
