@@ -163,7 +163,7 @@ class PageController extends Controller
 
     public static function showArticle(string $articleSlug)
     {
-        $articleSlug = filter_var(urldecode($articleSlug), FILTER_SANITIZE_STRING);
+        $articleSlug = urlencode( urldecode($articleSlug) );
         $article = Article::select()->where('web_id', 2)->where('slug', $articleSlug)->one();
 
         if (!$article) return self::notFound();
