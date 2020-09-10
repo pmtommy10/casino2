@@ -1,0 +1,164 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Core\Controller;
+use App\Models\Article;
+
+class PageController extends Controller
+{
+    public static function index()
+    {
+        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+        
+        self::createView('index', [
+            'pageHeader' => [
+                'pageTitle' => '',
+                'pageDesc' => '',
+                'url' => '/'
+            ],
+            'articles' => $articles,
+        ]);
+    }
+
+    public static function register()
+    {
+        self::createView('register', [
+            'pageHeader' => [
+                'pageTitle' => 'สมัครสมาชิก',
+                'pageDesc' => '',
+                'url' => '/สมัครสมาชิก'
+            ],
+            'partnerInContainer' => true,
+        ]);
+    }
+
+    public static function casino()
+    {
+        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+
+        self::createView('casino', [
+            'pageHeader' => [
+                'pageTitle' => 'คาสิโน',
+                'pageDesc' => '',
+                'url' => '/คาสิโน'
+            ],
+            'partnerInContainer' => true,
+            'articles' => $articles,
+        ]);
+    }
+
+    public static function bacara()
+    {
+        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+
+        self::createView('bacara', [
+            'pageHeader' => [
+                'pageTitle' => 'บาคาร่า',
+                'pageDesc' => '',
+                'url' => '/บาคาร่า'
+            ],
+            'partnerInContainer' => true,
+            'articles' => $articles,
+        ]);
+    }
+
+    public static function slot()
+    {
+        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+
+        self::createView('slot', [
+            'pageHeader' => [
+                'pageTitle' => 'สล็อต',
+                'pageDesc' => '',
+                'url' => '/สล็อต'
+            ],
+            'partnerInContainer' => true,
+            'articles' => $articles,
+        ]);
+    }
+
+    public static function football()
+    {
+        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+
+        self::createView('football', [
+            'pageHeader' => [
+                'pageTitle' => 'แทงบอล',
+                'pageDesc' => '',
+                'url' => '/แทงบอล'
+            ],
+            'partnerInContainer' => true,
+            'articles' => $articles,
+        ]);
+    }
+
+    public static function contact()
+    {
+        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+
+        self::createView('contact', [
+            'pageHeader' => [
+                'pageTitle' => 'ติดต่อเรา',
+                'pageDesc' => '',
+                'url' => '/ติดต่อเรา'
+            ],
+            'partnerInContainer' => true,
+            'articles' => $articles,
+        ]);
+    }
+
+    public static function entry()
+    {
+        $articles = Article::select()->orderBy('id', 'desc')->limit(6)->get();
+
+        self::createView('entry', [
+            'pageHeader' => [
+                'pageTitle' => 'ทางเข้าเล่น',
+                'pageDesc' => '',
+                'url' => '/ทางเข้าเล่น'
+            ],
+            'partnerInContainer' => true,
+            'articles' => $articles,
+        ]);
+    }
+
+    public static function articles(int $pageNo = 1)
+    {
+        if (isset($_GET['pageNo'])) header('location: /news/'.$_GET['pageNo']);        
+        $_GET['pageNo'] = $pageNo;
+
+        $itemsPerPage = 6;
+
+        $articles = Article::select()->page($pageNo-1, $itemsPerPage)->get();
+        $pagination = self::paginate(Article::select()->count(), $itemsPerPage);
+
+        self::createView('articles', [
+            'pageHeader' => [
+                'pageTitle' => 'บทความ',
+                'pageDesc' => '',
+                'url' => '/บทความ'
+            ],
+            'partnerInContainer' => true,
+            'currentPage' => $pageNo,
+            'pagination' => $pagination,
+            'articles' => $articles,
+        ]);
+    }
+
+    public static function showArticle(string $articleSlug)
+    {
+        $articleSlug = filter_var(urldecode($articleSlug), FILTER_SANITIZE_STRING);
+        $article = Article::select()->where('slug', $articleSlug)->one();
+
+        self::createView('showArticle', [
+            'pageHeader' => [
+                'pageTitle' => $article['title'],
+                'pageDesc' => '',
+                'url' => '/บทความ/'.$article['slug']
+            ],
+            'partnerInContainer' => true,
+            'article' => $article,
+        ]);
+    }
+}

@@ -1,14 +1,5 @@
-<?php
-$pageHeader = [
-    'pageTitle' => 'บาคาร่า',
-    'pageDesc' => '',
-    'url' => '/บาคาร่า'
-];
-$partnerInContainer = true;
-include INCLUDES . '_head.php';
-include INCLUDES . '_nav.php';
-include INCLUDES . '_partner.php';
-?>
+<?php include INCLUDES . '_partner.php'; ?>
+
 <section class="text-white">
     <div class="container">
         <section class="row bg-black py-4">
@@ -62,5 +53,3 @@ include INCLUDES . '_partner.php';
         </section>
     </div>
 </section>
-
-<?php include INCLUDES . '_foot.php'; ?>

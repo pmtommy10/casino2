@@ -1,13 +1,4 @@
-<?php
-$pageHeader = [
-    'pageTitle' => 'โปรโมชั่น',
-    'pageDesc' => '',
-    'url' => '/โปรโมชั่น'
-];
-$partnerInContainer = true;
-include INCLUDES . '_head.php';
-include INCLUDES . '_nav.php';
-include INCLUDES . '_partner.php'; ?>
+<?php include INCLUDES . '_partner.php'; ?>
 
 <section class="text-white">
     <div class="container">
@@ -105,5 +96,3 @@ include INCLUDES . '_partner.php'; ?>
         </section>
     </div>
 </section>
-
-<?php include INCLUDES . '_foot.php'; ?>
