@@ -50,6 +50,13 @@
                 <?php include INCLUDES . '_sidebar.php'; ?>
             </div>
 
+            <!-- Blog -->
+            <div class="mt-5">
+                <div class="container">
+                    <?php include INCLUDES . '_articles.php'; ?>
+                </div>
+            </div>
+
         </section>
     </div>
 </section>

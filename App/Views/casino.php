@@ -32,13 +32,13 @@
                 <?php include INCLUDES . '_sidebar.php'; ?>
             </div>
 
-        </section>
-    </div>
-</section>
+            <!-- Blog -->
+            <div class="mt-5">
+                <div class="container">
+                    <?php include INCLUDES . '_articles.php'; ?>
+                </div>
+            </div>
 
-<!-- Blog -->
-<section class="mt-5">
-    <div class="container">
-        <?php include INCLUDES . '_articles.php'; ?>
+        </section>
     </div>
 </section>
