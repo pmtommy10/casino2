@@ -47,6 +47,6 @@
 <!-- Blog -->
 <section class="mt-5">
     <div class="container">
-        <?php include INCLUDES . '_blog.php'; ?>
+        <?php include INCLUDES . '_articles.php'; ?>
     </div>
 </section>
